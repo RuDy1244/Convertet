@@ -1,0 +1,35 @@
+<body>
+<header>
+<h2 class="header-title">Курс Обміну:</h2>
+<p class="exchange-rate">1 USD = {{ getRate('USD') }} UAH</p>
+<p class="exchange-rate">1 EUR = {{ getRate('EUR') }} UAH</p>
+</header>
+
+<main class="currency-converter">
+<h2 class="converter-title">Конвертор валют</h2>
+<div class="input-group">
+    <label>From:</label>
+    <input type="number" [(ngModel)]="amount" (ngModelChange)="onAmountChange()">
+    <select [(ngModel)]="fromCurrency" (ngModelChange)="onCurrencyChange()">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+    
+    
+</div>
+
+<div class="input-group">
+    <label>To:</label>
+    <input type="number" [value]="convertedAmount">
+    <select [(ngModel)]="toCurrency" (ngModelChange)="onCurrencyChange()">
+        <option value="UAH">UAH</option>
+        <option value="USD">USD</option>
+        <option value="EUR">EUR</option>
+    </select>
+    
+</div>
+
+<button class="convert-button" (click)="convertCurrencies()">Convert</button>
+</main>
+</body>
